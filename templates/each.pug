@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Referencing object in if statement
+
+  body
+    h1 Bug
+    p If you reference an object that isn't the object being enumerated in an each block, you get this error:
+      pre executing "templates/each" at <.object.MatchValue>: can't evaluate field object in type main.Item 
+
+
+    h1 Example
+    p This works: #{object.MatchValue}
+
+    ul
+      each item in object.Items
+        li
+          p We can reference item properties: #{item.Value}
+
+          p Here's the bug:
+          p We cannot reference objects outside of the 'each' scope. This doesn't work: #{object.MatchValue}
+
